@@ -3,47 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sudoku Solver</title>
+    <title>Ultimate Tic Tac Toe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="game-container">
         <header>
-            <h1><i class="fas fa-th"></i> Sudoku Solver</h1>
-            <p>Enter your Sudoku puzzle and let the solver do the magic!</p>
+            <h1><i class="fas fa-times"></i> Ultimate Tic Tac Toe <i class="far fa-circle"></i></h1>
+            <div class="game-modes">
+                <button id="pvp-btn" class="active">Player vs Player</button>
+                <button id="ai-btn">Play vs AI</button>
+            </div>
         </header>
 
-        <div class="sudoku-container">
-            <div class="sudoku-grid" id="sudoku-grid"></div>
-            <div class="controls">
-                <button id="solve-btn" class="btn solve-btn">
-                    <i class="fas fa-magic"></i> Solve Sudoku
-                </button>
-                <button id="clear-btn" class="btn clear-btn">
-                    <i class="fas fa-broom"></i> Clear Board
-                </button>
-                <button id="example-btn" class="btn example-btn">
-                    <i class="fas fa-lightbulb"></i> Load Example
-                </button>
+        <div class="game-board">
+            <div class="scoreboard">
+                <div class="player x-player">
+                    <div class="player-icon"><i class="fas fa-times"></i></div>
+                    <div class="player-name">Player X</div>
+                    <div class="player-score" id="x-score">0</div>
+                </div>
+                <div class="player o-player">
+                    <div class="player-icon"><i class="far fa-circle"></i></div>
+                    <div class="player-name">Player O</div>
+                    <div class="player-score" id="o-score">0</div>
+                </div>
             </div>
+
+            <div class="board" id="board"></div>
+
+            <div class="game-status" id="game-status">Player X's Turn</div>
         </div>
 
-        <div class="instructions">
-            <h2>How to use:</h2>
-            <ol>
-                <li>Click on any empty cell to enter a number (1-9)</li>
-                <li>Press "Solve Sudoku" to find the solution</li>
-                <li>Use "Clear Board" to start over</li>
-                <li>Try "Load Example" for a sample puzzle</li>
-            </ol>
+        <div class="game-controls">
+            <button id="reset-btn"><i class="fas fa-redo"></i> Reset Game</button>
+            <button id="new-game-btn"><i class="fas fa-plus-circle"></i> New Game</button>
+            <div class="sound-toggle">
+                <input type="checkbox" id="sound-toggle" checked>
+                <label for="sound-toggle"><i class="fas fa-volume-up"></i></label>
+            </div>
         </div>
     </div>
 
-    <footer>
-        <p>Created with <i class="fas fa-heart"></i> - Sudoku Solver</p>
-    </footer>
+    <audio id="click-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3"></audio>
+    <audio id="win-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3"></audio>
+    <audio id="draw-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-retro-arcade-lose-2027.mp3"></audio>
 
     <script src="script.js"></script>
 </body>
